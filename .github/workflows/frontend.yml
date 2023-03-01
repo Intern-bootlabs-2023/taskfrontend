@@ -1,0 +1,18 @@
+name: Frontend application
+
+on:
+  push:
+   branches: [ main ]
+      
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build & Push Image
+      run: |
+        echo "${{ secrets.DOCKERPW }}" | docker login -u "karthikeyan1501/task-application" --password-stdin
+        docker image build -t karthikeyan1501/task-application:latest .
+        docker push karthikeyan1501/task-application:latest
