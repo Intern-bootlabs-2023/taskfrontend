@@ -31,7 +31,7 @@ export default function C1()
    async function hi()
   {
     
-     alert("Task submitted successfully");
+     alert("Task has been submitted successfully");
     axios.all([
       await axios.post(`http://${process.env.REACT_APP_APP_URL}/task/` ,{ name:name,task: task})
      .then((data) => {
